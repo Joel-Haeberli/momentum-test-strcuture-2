@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: 'testDeployment2'
+  namespace: flux-system
+spec:
+  targetNamespace: 'testDeployment2'
+  interval: 5m0s
+  path: ./momentum-root/test-app/test-stage/_deploy/testDeployment2
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: 'testrepo1'
